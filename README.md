@@ -37,13 +37,34 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 
 
 **PROGRAM**
+module jk_ff (j, k, clk, rst, q);   
+  input j, k, clk, rst;   
+  output reg q;   
+  always @(posedge clk or posedge rst) begin   
+    if (rst)   
+      q <= 0;    
+    else if (j == 0 && k == 0)   
+      q <= q;    
+    else if (j == 0 && k == 1)   
+      q <= 0;    
+    else if (j == 1 && k == 0)   
+      q <= 1;    
+    else if (j == 1 && k == 1)   
+      q <= ~q;    
+  end   
+endmodule   
 
- Developed by: RegisterNumber:25015346
+ Developed by:SOWNDHARYA S RegisterNumber:25009992  
 
 
 **RTL LOGIC FOR FLIPFLOPS**
 
+<img width="1426" height="747" alt="Screenshot 2025-12-18 191642" src="https://github.com/user-attachments/assets/db3d4d0f-0e67-4968-bcc4-87e6918d0c5f" />
+
+
 **TIMING DIGRAMS FOR FLIP FLOPS**
+<img width="1041" height="494" alt="Screenshot 2025-12-18 191713" src="https://github.com/user-attachments/assets/30d630cd-6cac-4003-8aba-24ea7144b0d8" />
+
 
 **RESULTS**
 
